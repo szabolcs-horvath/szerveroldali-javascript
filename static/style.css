@@ -1,0 +1,12 @@
+.row {
+    border: 1px solid black;
+}
+
+h1, span {
+    display: inline-flex;
+    align-items: center;
+}
+
+#row-names {
+    font-weight: bold;
+}
