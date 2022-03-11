@@ -10,17 +10,23 @@
 
     <body>
         <div class="container">
-            <h1>Hűtő Szerkesztése</h1>
-            <form action="/">
+            <h1>Tétel szerkesztése</h1>
+            <form action="container.html">
                 <button type="submit" >Mentés</button>
             </form>
-            <div class="row">
-                <span class="col-md-3">Név: </span>
-                <input class="col-md-3" type="text" value="Konyhai hűtő"/>
-                <span class="col-md-3">Szín: </span>
-                <input class="col-md-3" type="color">
+            <div class="row" id="row-names">
+                <span class="col-md-6">Név</span>
+                <span class="col-md-2">Mennyiség</span>
+                <span class="col-md-2">Mértékegység</span>
+                <span class="col-md-2">Lejárati dátum</span>
             </div>
-            <form action="/">
+            <div class="row">
+                <input class="col-md-6" type="text" />
+                <input class="col-md-2" type="text" />
+                <input class="col-md-2" type="text" />
+                <input class="col-md-2" type="date" />
+            </div>
+            <form action="container.html">
                 <button type="submit" >Vissza</button>
             </form>
         </div>
