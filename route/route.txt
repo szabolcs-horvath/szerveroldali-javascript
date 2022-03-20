@@ -1,0 +1,12 @@
+method          route                                       leírás
+_____________________________________________________________________________________________
+GET             /                                           container-ek listája
+GET, POST       /container/new                              új container felvétele
+GET, POST       /container/edit/:containerid                container szerkesztése
+GET             /container/delete/:containerid              container törlése
+
+GET             /container/:containerid                     container-ben lévő tételek
+GET, POST       /container/:containerid/newitem             új tétel felvétele a containerbe
+GET, POST       /container/:containerid/edititem/:itemid    tétel szerkesztése
+GET             /container/:containerid/deleteitem/:itemid  tétel törlése
+
