@@ -1,0 +1,42 @@
+<%- include('header') -%>
+<h1 id="title">Milyen kaja van otthon?</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Név
+        </th>
+        <th>
+            Tételek száma
+        </th>
+        <th>
+            &nbsp;
+        </th>
+        <th>
+            &nbsp;
+        </th>
+        <th>
+            &nbsp;
+        </th>
+    </tr>
+    <% containers.forEach(function(c) { %>
+        <tr style="background-color: <%= c.color %>;">
+            <td>
+                <%= c.name %>
+            </td>
+            <td>
+                <%= c.items.length %>
+            </td>
+            <td style="width:100px; white-space: nowrap">
+                <a href="/container/<%= c.id %>" class="btn btn-sm btn-primary">MEGTEKINTÉS</a>
+            </td>
+            <td style="width:50px; white-space: nowrap">
+                <a href="/container/edit/<%= c.id %>" class="btn btn-sm btn-secondary"><i class="bi bi-pen"></i></a>
+            </td>
+            <td style="width:50px; white-space: nowrap">
+                <a href="/container/delete/<%= c.id %>" class="btn btn-sm btn-danger"><i class="bi bi-x-circle"></i></a>
+            </td>
+        </tr>
+    <% }); %>
+</table>
+<a href="/container/new" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i>Új tároló</a>
+<%- include('footer') -%>
