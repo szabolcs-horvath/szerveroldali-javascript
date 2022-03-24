@@ -1,3 +1,6 @@
+/*
+ * Törli a res.locals.item-ben lévő itemet
+*/
 module.exports = function(objRep) {
     return (req, res, next) => {
         if (typeof res.locals.item === 'undefined') {

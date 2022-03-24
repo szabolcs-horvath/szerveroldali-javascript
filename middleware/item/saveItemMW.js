@@ -1,3 +1,7 @@
+/*
+ * Ha res.locals.item üres, új itemet hoz létre, egyébként felülírja
+ * a res.locals.item-et a req.body-ban lévő adatokkal
+*/
 module.exports = function(objRep) {
     return (req, res, next) => {
         if (

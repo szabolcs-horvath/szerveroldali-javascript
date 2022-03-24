@@ -1,3 +1,7 @@
+/*
+ * Ha res.locals.container üres, új containert hoz létre, egyébként felülírja
+ * a res.locals.container-t a req.body-ban lévő adatokkal
+*/
 module.exports = function(objRep) {
     return (req, res, next) => {
         if (

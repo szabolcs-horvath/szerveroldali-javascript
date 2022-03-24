@@ -29,40 +29,40 @@ module.exports = function(app) {
     )
     app.use(
         '/container/edit/:containerid',
-        getContainerMW(objRepo),
+        getContainerMW(objRepo, req.params.containerid),
         saveContainerMW(objRepo),
         renderMW(objRepo)
     )
     app.get(
         '/container/delete/:containerid',
-        getContainerMW(objRepo),
+        getContainerMW(objRepo, req.params.containerid),
         deleteContainerMW(objRepo),
         renderMW(objRepo)
     )
 
     app.get(
         '/container/:containerid',
-        getContainerMW(objRepo),
+        getContainerMW(objRepo, req.params.containerid),
         getItemsMW(objRepo),
         renderMW(objRepo)
     )
     app.use(
         '/container/:containerid/newitem',
-        getContainerMW(objRepo),
+        getContainerMW(objRepo, req.params.containerid),
         saveItemMW(objRepo),
         renderMW(objRepo)
     )
     app.use(
         '/container/:containerid/edititem/:itemid',
-        getContainerMW(objRepo),
-        getItemMW(objRepo),
+        getContainerMW(objRepo, req.params.containerid),
+        getItemMW(objRepo, req.params.itemid),
         saveItemMW(objRepo),
         renderMW(objRepo)
     )
     app.get(
         '/container/:containerid/deleteitem/:itemid',
-        getContainerMW(objRepo),
-        getItemMW(objRepo),
+        getContainerMW(objRepo, req.params.containerid),
+        getItemMW(objRepo, req.params.itemid),
         deleteItemMW(objRepo),
         renderMW(objRepo)
     )

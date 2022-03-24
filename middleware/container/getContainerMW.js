@@ -1,4 +1,7 @@
-module.exports = function(objRep) {
+/*
+ * Betölti a megadott id-vel rendelkező containert a res.locals.container-be
+*/
+module.exports = function(objRep, containerid) {
     return (req, res, next) => {
         //TODO
         const container = {

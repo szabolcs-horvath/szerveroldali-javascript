@@ -1,3 +1,6 @@
+/*
+ * Betölti a res.locals.containers-be az összes containert
+*/
 module.exports = function(objRep) {
     return (req, res, next) => {
         //TODO

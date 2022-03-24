@@ -1,3 +1,6 @@
+/*
+ * Betölti a res.locals.items-be a res.locals.container itemjeit
+*/
 module.exports = function(objRep) {
     return (req, res, next) => {
         if (typeof res.locals.container === 'undefined') {
