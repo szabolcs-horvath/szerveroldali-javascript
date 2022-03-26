@@ -11,7 +11,7 @@ const deleteItemMW = require('../middleware/item/deleteItemMW');
 const ContainerModel = require('../model/container');
 const ItemModel = require('../model/item');
 
-module.exports = function(app) {
+module.exports = function (app) {
     const objRepo = {
         ContainerModel: ContainerModel,
         ItemModel: ItemModel
@@ -26,44 +26,44 @@ module.exports = function(app) {
         '/container/new',
         saveContainerMW(objRepo),
         renderMW(objRepo)
-    )
+    );
     app.use(
         '/container/edit/:containerid',
-        getContainerMW(objRepo, req.params.containerid),
+        getContainerMW(objRepo),
         saveContainerMW(objRepo),
         renderMW(objRepo)
-    )
+    );
     app.get(
         '/container/delete/:containerid',
-        getContainerMW(objRepo, req.params.containerid),
+        getContainerMW(objRepo),
         deleteContainerMW(objRepo),
         renderMW(objRepo)
-    )
+    );
 
     app.get(
         '/container/:containerid',
-        getContainerMW(objRepo, req.params.containerid),
+        getContainerMW(objRepo),
         getItemsMW(objRepo),
-        renderMW(objRepo)
-    )
+        renderMW(objRepo, 'container')
+    );
     app.use(
         '/container/:containerid/newitem',
-        getContainerMW(objRepo, req.params.containerid),
+        getContainerMW(objRepo),
         saveItemMW(objRepo),
         renderMW(objRepo)
-    )
+    );
     app.use(
-        '/container/:containerid/edititem/:itemid',
-        getContainerMW(objRepo, req.params.containerid),
-        getItemMW(objRepo, req.params.itemid),
+        '/container/:containerid/edititems/',
+        getContainerMW(objRepo),
+        getItemsMW(objRepo),
         saveItemMW(objRepo),
         renderMW(objRepo)
-    )
+    );
     app.get(
         '/container/:containerid/deleteitem/:itemid',
-        getContainerMW(objRepo, req.params.containerid),
-        getItemMW(objRepo, req.params.itemid),
+        getContainerMW(objRepo),
+        getItemMW(objRepo),
         deleteItemMW(objRepo),
         renderMW(objRepo)
-    )
+    );
 }

@@ -1,7 +1,7 @@
 /*
  * Betölti a megadott id-vel rendelkező itemet a res.locals.item-be
  */
-module.exports = function(objRep, itemid) {
+module.exports = function(objRep) {
     return (req, res, next) => {
         //TODO
         const item = 

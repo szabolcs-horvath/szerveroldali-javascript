@@ -26,7 +26,7 @@ module.exports = function(objRep) {
                     },
                     {
                         id: 3,
-                        name: "tej",
+                        name: "Tej",
                         amount: "1/2",
                         unit: "l",
                         expiryDate: "2022-02-26"
@@ -54,7 +54,7 @@ module.exports = function(objRep) {
                     },
                     {
                         id: 3,
-                        name: "tej",
+                        name: "Tej",
                         amount: "1/2",
                         unit: "l",
                         expiryDate: "2022-02-26"

@@ -1,7 +1,7 @@
 /*
  * Betölti a megadott id-vel rendelkező containert a res.locals.container-be
 */
-module.exports = function(objRep, containerid) {
+module.exports = function(objRep) {
     return (req, res, next) => {
         //TODO
         const container = {
@@ -25,13 +25,13 @@ module.exports = function(objRep, containerid) {
                 },
                 {
                     id: 3,
-                    name: "tej",
+                    name: "Tej",
                     amount: "1/2",
                     unit: "l",
                     expiryDate: "2022-02-26"
                 }
             ]
-        }
+        };
 
         res.locals.container = container;
         return next();

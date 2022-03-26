@@ -1,0 +1,38 @@
+<%- include('header') -%>
+<h1><%= container.name %></h1>
+<a href="/" class="btn btn-sm btn-secondary"><i class="bi bi-arrow-return-left"></i></a>
+<a href="/container/<%= container.id %>/edititems" class="btn btn-sm btn-primary">Szerkesztés</a>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            Név
+        </th>
+        <th>
+            Mennyiség
+        </th>
+        <th>
+            Lejárati dátum
+        </th>
+        <th>
+            &nbsp;
+        </th>
+    </tr>
+    <% items.forEach(function(i) { %>
+        <tr>
+            <td>
+                <%= i.name %>
+            </td>
+            <td>
+                <%= `${i.amount} ${i.unit}` %>
+            </td>
+            <td>
+                <%= i.expiryDate %>
+            </td>
+            <td style="width:50px; white-space: nowrap">
+                <a href="/container/<%= container.id %>/deleteitem/<%= i.id %>" class="btn btn-sm btn-danger"><i class="bi bi-x-circle"></i></a>
+            </td>
+        </tr>
+    <% }); %>
+</table>
+<a href="/container/<%= container.id %>/newitem" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i>Új tétel</a>
+<%- include('footer') -%>
