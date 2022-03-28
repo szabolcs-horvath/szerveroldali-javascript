@@ -50,7 +50,7 @@ module.exports = function (app) {
         '/container/:containerid/newitem',
         getContainerMW(objRepo),
         saveItemMW(objRepo),
-        renderMW(objRepo)
+        renderMW(objRepo, 'newitem')
     );
     app.use(
         '/container/:containerid/edititem/:itemid',
