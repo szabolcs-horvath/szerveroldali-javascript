@@ -25,7 +25,7 @@ module.exports = function (app) {
     app.use(
         '/container/new',
         saveContainerMW(objRepo),
-        renderMW(objRepo)
+        renderMW(objRepo, 'newcontainer')
     );
     app.use(
         '/container/edit/:containerid',

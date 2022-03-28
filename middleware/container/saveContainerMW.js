@@ -5,8 +5,9 @@
 module.exports = function(objRep) {
     return (req, res, next) => {
         if (
-            typeof req.body.containerName === 'undefined' ||
-            typeof req.body.containerColor === 'undefined'
+            req.method === 'GET' ||
+            typeof req.body.nameInput === 'undefined' ||
+            typeof req.body.colorInput === 'undefined'
         ) {
             return next();
         }
@@ -53,7 +54,7 @@ module.exports = function(objRep) {
                 return next(err);
             }
 
-            return res.redirect('/');
+            return res.redirect(`/container/${res.locals.container.id}`);
         });
     }
 }
