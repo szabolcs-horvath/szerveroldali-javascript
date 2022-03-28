@@ -31,13 +31,13 @@ module.exports = function (app) {
         '/container/edit/:containerid',
         getContainerMW(objRepo),
         saveContainerMW(objRepo),
-        renderMW(objRepo)
+        renderMW(objRepo, 'editcontainer')
     );
     app.get(
         '/container/delete/:containerid',
         getContainerMW(objRepo),
         deleteContainerMW(objRepo),
-        renderMW(objRepo)
+        renderMW(objRepo, 'container')
     );
 
     app.get(
