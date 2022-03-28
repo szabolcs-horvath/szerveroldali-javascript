@@ -1,0 +1,39 @@
+<%- include('header') -%>
+<h1><%= container.name %> tételeinek szerkesztése</h1>
+<a href="/container/<%= container.id %>" class="btn btn-sm btn-secondary"><i class="bi bi-arrow-return-left"></i></a>
+<form action="/container/<%= container.id %>/edititems" method="post" style="margin-top: 8px;">
+    <table class="table table-striped table-bordered" style="margin-top: 8px;">
+        <tr>
+            <th>
+                Név
+            </th>
+            <th>
+                Mennyiség
+            </th>
+            <th>
+                Mértékegység
+            </th>
+            <th>
+                Lejárati dátum
+            </th>
+        </tr>
+        <% items.forEach(function(i) { %>
+            <tr>
+                <td>
+                    <input id="itemNameInput" name="itemNameInput" type="text" class="form-control" value="<%= i.name %>" placeholder="Név" />
+                </td>
+                <td>
+                    <input id="itemAmountInput" name="itemAmountInput" type="text" class="form-control" value="<%= i.amount %>" placeholder="Mennyiség" />
+                </td>
+                <td>
+                    <input id="itemUnitInput" name="itemUnitInput" type="text" class="form-control" value="<%= i.unit %>" placeholder="Mértékegység" />
+                </td>
+                <td>
+                    <input id="itemExpiryDateInput" name="itemExpiryDateInput" type="date" class="form-control" value="<%= i.expiryDate %>" placeholder="Lejárati dátum" />
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+    <button class="btn btn-primary" style="margin-top: 16px;">Mentés</button>
+</form>
+<%- include('footer') -%>

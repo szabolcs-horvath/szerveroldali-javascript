@@ -53,11 +53,11 @@ module.exports = function (app) {
         renderMW(objRepo)
     );
     app.use(
-        '/container/:containerid/edititems/',
+        '/container/:containerid/edititems',
         getContainerMW(objRepo),
         getItemsMW(objRepo),
         saveItemMW(objRepo),
-        renderMW(objRepo)
+        renderMW(objRepo, 'edititems')
     );
     app.get(
         '/container/:containerid/deleteitem/:itemid',
