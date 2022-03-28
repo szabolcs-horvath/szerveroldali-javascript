@@ -46,8 +46,8 @@ module.exports = function(objRep) {
             res.locals.container = container;
         }
 
-        res.locals.container.name = req.body.containerName;
-        res.locals.container.color = req.body.containerColor;
+        res.locals.container.name = req.body.nameInput;
+        res.locals.container.color = req.body.colorInput;
 
         res.locals.container.save(err => {
             if (err) {
