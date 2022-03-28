@@ -5,10 +5,11 @@
 module.exports = function(objRep) {
     return (req, res, next) => {
         if (
-            typeof req.body.itemName === 'undefined' ||
-            typeof req.body.itemAmount === 'undefined' ||
-            typeof req.body.itemUnit === 'undefined' ||
-            typeof req.body.itemExpiryDate === 'undefined'
+            req.method === 'GET' ||
+            typeof req.body.itemNameInput === 'undefined' ||
+            typeof req.body.itemAmountInput === 'undefined' ||
+            typeof req.body.itemUnitInput === 'undefined' ||
+            typeof req.body.itemExpiryDateInput === 'undefined'
             ) {
             return next();
         }
@@ -27,10 +28,10 @@ module.exports = function(objRep) {
             res.locals.item = item;
         }
 
-        res.locals.item.name = req.body.itemName;
-        res.locals.item.name = req.body.itemName;
-        res.locals.item.name = req.body.itemName;
-        res.locals.item.name = req.body.itemName;
+        res.locals.item.name = req.body.itemNameInput;
+        res.locals.item.amount = req.body.itemAmountInput;
+        res.locals.item.unit = req.body.itemUnitInput;
+        res.locals.item.expiryDate = req.body.itemExpiryDateInput;
 
         res.locals.item.save(err => {
             if (err) {

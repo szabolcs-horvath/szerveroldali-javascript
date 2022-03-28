@@ -1,0 +1,23 @@
+<%- include('header') -%>
+<h1><%= container.name %> tételeinek szerkesztése</h1>
+<a href="/container/<%= container.id %>" class="btn btn-sm btn-secondary"><i class="bi bi-arrow-return-left"></i></a>
+<form action="/container/<%= container.id %>/edititem/<%= item.id %>" method="post" style="margin-top: 8px;">
+    <div class="form-group">
+        <label for="itemNameInput">Név:</label>
+        <input id="itemNameInput" name="itemNameInput" type="text" class="form-control" value="<%= item.name %>" placeholder="Név" />
+    </div>
+    <div class="form-group">
+        <label for="itemAmountInput">Mennyiség:</label>
+        <input id="itemAmountInput" name="itemAmountInput" type="text" class="form-control" value="<%= item.amount %>" placeholder="Mennyiség" />
+    </div>
+    <div class="form-group">
+        <label for="itemUnitInput">Mértékegység:</label>
+        <input id="itemUnitInput" name="itemUnitInput" type="text" class="form-control" value="<%= item.unit %>" placeholder="Mértékegység" />
+    </div>
+    <div class="form-group">
+        <label for="itemExpiryDateInput">Lejárati dátum:</label>
+        <input id="itemExpiryDateInput" name="itemExpiryDateInput" type="date" class="form-control" value="<%= item.expiryDate %>" placeholder="Lejárati dátum" />
+    </div>
+    <button class="btn btn-primary" style="margin-top: 16px;">Mentés</button>
+</form>
+<%- include('footer') -%>

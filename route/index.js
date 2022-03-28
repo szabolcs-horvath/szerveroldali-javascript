@@ -37,7 +37,7 @@ module.exports = function (app) {
         '/container/delete/:containerid',
         getContainerMW(objRepo),
         deleteContainerMW(objRepo),
-        renderMW(objRepo, 'container')
+        renderMW(objRepo, 'index')
     );
 
     app.get(
@@ -53,11 +53,11 @@ module.exports = function (app) {
         renderMW(objRepo)
     );
     app.use(
-        '/container/:containerid/edititems',
+        '/container/:containerid/edititem/:itemid',
         getContainerMW(objRepo),
-        getItemsMW(objRepo),
+        getItemMW(objRepo),
         saveItemMW(objRepo),
-        renderMW(objRepo, 'edititems')
+        renderMW(objRepo, 'edititem')
     );
     app.get(
         '/container/:containerid/deleteitem/:itemid',
