@@ -3,6 +3,7 @@ const getContainersMW = require('../middleware/container/getContainersMW');
 const getContainerMW = require('../middleware/container/getContainerMW');
 const saveContainerMW = require('../middleware/container/saveContainerMW');
 const deleteContainerMW = require('../middleware/container/deleteContainerMW');
+const getContainerItemCountsMW = require('../middleware/container/getContainerItemCountsMW');
 const getItemsMW = require('../middleware/item/getItemsMW');
 const getItemMW = require('../middleware/item/getItemMW');
 const saveItemMW = require('../middleware/item/saveItemMW');
@@ -20,6 +21,7 @@ module.exports = function (app) {
     app.get(
         '/',
         getContainersMW(objRepo),
+        getContainerItemCountsMW(objRepo),
         renderMW(objRepo, 'index')
     );
     app.use(
