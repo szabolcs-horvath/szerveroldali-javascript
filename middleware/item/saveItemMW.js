@@ -2,7 +2,11 @@
  * Ha res.locals.item üres, új itemet hoz létre, egyébként felülírja
  * a res.locals.item-et a req.body-ban lévő adatokkal
 */
+const requireOption = require('../../dbconfig/requireOption');
+
 module.exports = function(objRep) {
+    const ItemModel = requireOption(objRep, 'ItemModel');
+
     return (req, res, next) => {
         if (
             req.method === 'GET' ||
@@ -15,30 +19,21 @@ module.exports = function(objRep) {
         }
 
         if (typeof res.locals.item === 'undefined') {
-            //TODO
-            const item = 
-            {
-                id: 1,
-                name: "Rama margarin",
-                amount: "200",
-                unit: "g",
-                expiryDate: "2022-03-12"
-            };
-
-            res.locals.item = item;
+            res.locals.item = new ItemModel();
         }
 
         res.locals.item.name = req.body.itemNameInput;
         res.locals.item.amount = req.body.itemAmountInput;
         res.locals.item.unit = req.body.itemUnitInput;
         res.locals.item.expiryDate = req.body.itemExpiryDateInput;
+        res.locals.item._container = res.locals.container._id;
 
         res.locals.item.save(err => {
             if (err) {
                 return next(err);
             }
             
-            return res.redirect(`/container/${res.locals.container.id}`);
-        })
-    }
-}
+            return res.redirect(`/container/${res.locals.container._id}`);
+        });
+    };
+};

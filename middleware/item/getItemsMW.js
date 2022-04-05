@@ -1,37 +1,23 @@
 /*
  * Betölti a res.locals.items-be a res.locals.container itemjeit
 */
+const requireOption = require('../../dbconfig/requireOption');
+
 module.exports = function(objRep) {
+    const ItemModel = requireOption(objRep, 'ItemModel');
+    
     return (req, res, next) => {
         if (typeof res.locals.container === 'undefined') {
             return next();
         }
-        //TODO
-        const items = [
-            {
-                id: 1,
-                name: "Rama margarin",
-                amount: "200",
-                unit: "g",
-                expiryDate: "2022-03-12"
-            },
-            {
-                id: 2,
-                name: "Majonéz",
-                amount: "1",
-                unit: "tubus",
-                expiryDate: "2022-11-23"
-            },
-            {
-                id: 3,
-                name: "Tej",
-                amount: "1/2",
-                unit: "l",
-                expiryDate: "2022-02-26"
-            }
-        ];
 
-        res.locals.items = items;
-        return next();
-    }
-}
+        ItemModel.find({ _container: res.locals.container._id }, (err, items) => {
+            if (err) {
+                return next(err);
+            }
+
+            res.locals.items = items;
+            return next();
+        });
+    };
+};

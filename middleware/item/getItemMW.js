@@ -1,19 +1,19 @@
 /*
  * Betölti a megadott id-vel rendelkező itemet a res.locals.item-be
  */
-module.exports = function(objRep) {
-    return (req, res, next) => {
-        //TODO
-        const item = 
-        {
-            id: 1,
-            name: "Rama margarin",
-            amount: "200",
-            unit: "g",
-            expiryDate: "2022-03-12"
-        };
+const requireOption = require('../../dbconfig/requireOption');
 
-        res.locals.item = item;
-        return next();
-    }
-}
+module.exports = function(objRep) {
+    const ItemModel = requireOption(objRep, 'ItemModel');
+
+    return (req, res, next) => {
+        ItemModel.findOne({ _id: req.params.itemid }, (err, item) => {
+            if (err || !item) {
+                return next(err);
+            }
+
+            res.locals.item = item;
+            return next();
+        });      
+    };
+};
