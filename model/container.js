@@ -4,7 +4,7 @@ const db = require('../dbconfig/db');
 const Container = db.model('Container', {
     name: String,
     color: String,
-    itemCount: int 
+    itemCount: Number
 });
 
 module.exports = Container;
