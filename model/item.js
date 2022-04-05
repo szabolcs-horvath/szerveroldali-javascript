@@ -5,7 +5,7 @@ const Item = db.model('Item', {
     name: String,
     amount: String,
     unit: String,
-    expiryDate: Date,
+    expiryDate: String,
     _container: {
         type: Schema.Types.ObjectId,
         ref: 'Container'
