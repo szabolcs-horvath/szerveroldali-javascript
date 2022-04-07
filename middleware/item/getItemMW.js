@@ -7,7 +7,7 @@ module.exports = function(objRep) {
     const ItemModel = requireOption(objRep, 'ItemModel');
 
     return (req, res, next) => {
-        ItemModel.findOne({ _id: req.params.itemid }, (err, item) => {
+        return ItemModel.findOne({ _id: req.params.itemid }, (err, item) => {
             if (err || !item) {
                 return next(err);
             }

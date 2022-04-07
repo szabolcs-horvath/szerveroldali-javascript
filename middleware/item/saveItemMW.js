@@ -28,7 +28,7 @@ module.exports = function(objRep) {
         res.locals.item.expiryDate = req.body.itemExpiryDateInput;
         res.locals.item._container = res.locals.container._id;
 
-        res.locals.item.save(err => {
+        return res.locals.item.save(err => {
             if (err) {
                 return next(err);
             }

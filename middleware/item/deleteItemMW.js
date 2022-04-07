@@ -7,12 +7,12 @@ module.exports = function(objRep) {
             return next();
         }
 
-        res.locals.item.remove(err => {
+        return res.locals.item.remove(err => {
             if (err) {
                 return next(err);
             }
 
             return res.redirect(`/container/${res.locals.container.id}`);
-        })
-    }
-}
+        });
+    };
+};

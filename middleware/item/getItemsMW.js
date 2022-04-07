@@ -11,7 +11,7 @@ module.exports = function(objRep) {
             return next();
         }
 
-        ItemModel.find({ _container: res.locals.container._id }, (err, items) => {
+        return ItemModel.find({ _container: res.locals.container._id }, (err, items) => {
             if (err) {
                 return next(err);
             }

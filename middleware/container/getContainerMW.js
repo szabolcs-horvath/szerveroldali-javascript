@@ -7,7 +7,7 @@ module.exports = function(objRep) {
     const ContainerModel = requireOption(objRep, 'ContainerModel');
 
     return (req, res, next) => {
-        ContainerModel.findOne({ _id: req.params.containerid }, (err, container) => {
+        return ContainerModel.findOne({ _id: req.params.containerid }, (err, container) => {
             if (err || !container) {
                 return next(err);
             }

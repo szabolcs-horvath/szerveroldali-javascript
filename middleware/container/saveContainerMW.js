@@ -24,7 +24,7 @@ module.exports = function(objRep) {
         res.locals.container.name = req.body.nameInput;
         res.locals.container.color = req.body.colorInput;
 
-        res.locals.container.save(err => {
+        return res.locals.container.save(err => {
             if (err) {
                 return next(err);
             }
