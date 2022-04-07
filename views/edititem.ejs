@@ -1,7 +1,7 @@
 <%- include('header') -%>
 <h1><%= container.name %> tételeinek szerkesztése</h1>
 <a href="/container/<%= container._id %>" class="btn btn-sm btn-secondary"><i class="bi bi-arrow-return-left"></i></a>
-<form action="/container/<%= container._id %>/edititem/<%= item._id %>" method="post" style="margin-top: 8px;">
+<form method="post" style="margin-top: 8px;">
     <div class="form-group">
         <label for="itemNameInput">Név:</label>
         <input id="itemNameInput" name="itemNameInput" type="text" class="form-control" value="<%= item.name %>" placeholder="Név" />
@@ -18,6 +18,6 @@
         <label for="itemExpiryDateInput">Lejárati dátum:</label>
         <input id="itemExpiryDateInput" name="itemExpiryDateInput" type="date" class="form-control" value="<%= item.expiryDate %>" placeholder="Lejárati dátum" />
     </div>
-    <button class="btn btn-primary" style="margin-top: 16px;">Mentés</button>
+    <button href="/container/<%= container._id %>/edititem/<%= item._id %>" class="btn btn-primary" style="margin-top: 16px;">Mentés</button>
 </form>
 <%- include('footer') -%>
