@@ -8,7 +8,11 @@ module.exports = function(objRep) {
         }
 
         for (const i of res.locals.items) {
-            await i.remove();
+            await i.remove(err => {
+                if (err) {
+                    next (err);
+                }
+            });
         }
 
         await res.locals.container.remove(err => {
