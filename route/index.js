@@ -38,6 +38,7 @@ module.exports = function (app) {
     app.get(
         '/container/delete/:containerid',
         getContainerMW(objRepo),
+        getItemsMW(objRepo),
         deleteContainerMW(objRepo),
         renderMW(objRepo, 'index')
     );
