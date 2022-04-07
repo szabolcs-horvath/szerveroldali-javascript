@@ -31,13 +31,13 @@
                 <%= i.expiryDate %>
             </td>
             <td style="width:50px; white-space: nowrap">
-                <a href="/container/<%= container.id %>/edititem/<%= i.id %>" class="btn btn-sm btn-secondary"><i class="bi bi-pen"></i></a>
+                <a href="/container/<%= container._id %>/edititem/<%= i.id %>" class="btn btn-sm btn-secondary"><i class="bi bi-pen"></i></a>
             </td>
             <td style="width:50px; white-space: nowrap">
-                <a href="/container/<%= container.id %>/deleteitem/<%= i.id %>" class="btn btn-sm btn-danger"><i class="bi bi-x-circle"></i></a>
+                <a href="/container/<%= container._id %>/deleteitem/<%= i.id %>" class="btn btn-sm btn-danger"><i class="bi bi-x-circle"></i></a>
             </td>
         </tr>
     <% }); %>
 </table>
-<a href="/container/<%= container.id %>/newitem" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i>Új tétel</a>
+<a href="/container/<%= container._id %>/newitem" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i>Új tétel</a>
 <%- include('footer') -%>

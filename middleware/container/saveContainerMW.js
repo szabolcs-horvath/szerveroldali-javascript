@@ -29,7 +29,7 @@ module.exports = function(objRep) {
                 return next(err);
             }
 
-            return res.redirect(`/container/${res.locals.container.id}`);
+            return res.redirect(`/container/${res.locals.container._id}`);
         });
-    }
-}
+    };
+};
