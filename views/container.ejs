@@ -1,7 +1,7 @@
-<%- include('header') -%>
+<%- include('header', {title: container.name}) -%>
 <h1><%= container.name %></h1>
 <a href="/" class="btn btn-sm btn-secondary"><i class="bi bi-arrow-return-left"></i></a>
-<table class="table table-striped table-bordered" style="margin-top: 8px;">
+<table class="table table-striped table-bordered" style="margin-top: 8px;" aria-describedby="A tárolónk tartalma">
     <tr>
         <th>
             Név

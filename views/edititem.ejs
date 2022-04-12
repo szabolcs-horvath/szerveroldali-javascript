@@ -1,4 +1,4 @@
-<%- include('header') -%>
+<%- include('header', {title: container.name + ' tételének szerkesztése'}) -%>
 <h1><%= container.name %> tételeinek szerkesztése</h1>
 <a href="/container/<%= container._id %>" class="btn btn-sm btn-secondary"><i class="bi bi-arrow-return-left"></i></a>
 <form method="post" style="margin-top: 8px;">
