@@ -131,3 +131,6 @@ dist
 
 # zip files
 *.zip
+
+# Webstorm
+.idea

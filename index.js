@@ -9,5 +9,5 @@ app.use(express.urlencoded({extended:true}));
 require('./route/index')(app); // Use routing
 
 const server = app.listen(3000, function () {
-    console.log('Running on :3000');
+    console.log(`Listening on ${server.address().address}:${server.address().port}`);
 });
