@@ -8,8 +8,7 @@ module.exports = function(objRep) {
 
     return async (req, res, next) => {
         if (typeof res.locals.containers === undefined) {
-            const err = 'res.locals.containers is undefined'
-            return next(err);
+            return next('res.locals.containers is undefined');
         }
 
         for (const c of res.locals.containers) {
