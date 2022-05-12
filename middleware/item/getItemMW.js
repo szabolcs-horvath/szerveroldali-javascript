@@ -9,7 +9,7 @@ module.exports = function(objRep) {
     return (req, res, next) => {
         return ItemModel.findOne({ _id: req.params.itemid }, (err, item) => {
             if (err || !item) {
-                return next(err);
+                return next(err, item);
             }
 
             res.locals.item = item;

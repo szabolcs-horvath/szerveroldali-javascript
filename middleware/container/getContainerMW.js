@@ -9,7 +9,7 @@ module.exports = function(objRep) {
     return (req, res, next) => {
         return ContainerModel.findOne({ _id: req.params.containerid }, (err, container) => {
             if (err || !container) {
-                return next(err);
+                return next(err, container);
             }
 
             res.locals.container = container;
