@@ -134,3 +134,6 @@ dist
 
 # Webstorm
 .idea
+
+#Istanbul code coverage
+coverage/
