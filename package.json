@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "start": "node index.js",
+    "test": "mocha .\\test\\ --recursive",
+    "coverage": "nyc --all --reporter='html' npm run test"
   },
   "repository": {
     "type": "git",
